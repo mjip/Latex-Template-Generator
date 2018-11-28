@@ -7,6 +7,7 @@ dir=${PWD##*/}
 # $1 = assignment or report, $2 is report/assignment number, $3 is number of questions if assignment
 if [ "$#" -gt 4 ]; then 
 	echo "Illegal number of arguments\n"
+	echo "Usage: maketex report||assignment number [number of assignment questions]"
 elif [ "$1" = "report" ]; then # if it's a report
 	if [ "$2" -eq "$2" 2> /dev/null ]; then # if it specifies the number
 		mkdir "$1$2"
