@@ -5,9 +5,9 @@ export studentname=$STUDENTNAME && studentid=$STUDENTID
 dir=${PWD##*/}
 
 # $1 = assignment or report, $2 is report/assignment number, $3 is number of questions if assignment
-if [ "$#" -gt 4 ]; then 
+if [ "$#" -gt 3 ]; then 
 	echo "Illegal number of arguments\n"
-	echo "Usage: maketex report||assignment number [number of assignment questions]"
+	echo "Usage: sh maketex.sh <report||assignment number> [number of assignment questions]"
 elif [ "$1" = "report" ]; then # if it's a report
 	if [ "$2" -eq "$2" 2> /dev/null ]; then # if it specifies the number
 		mkdir "$1$2"
@@ -21,7 +21,7 @@ elif [ "$1" = "report" ]; then # if it's a report
 		rm header.tex
 		cd ..
 	else
-		echo "Usage: maketex report||assignment number [number of assignment questions]"
+		echo "Usage: sh maketex.sh <report||assignment number> [number of assignment questions]"
 	fi 
 elif [ "$1" = "assignment" ]; then # if it's an assignment
 	if [ "$2" -eq "$2" 2> /dev/null ]; then # if it specifies the number
@@ -44,12 +44,12 @@ elif [ "$1" = "assignment" ]; then # if it's an assignment
 			rm questions.tex
 			cd ..
 		else
-			echo "Usage: maketex report||assignment number [number of assignment questions]"
+			echo "Usage: sh maketex.sh <report||assignment number> [number of assignment questions]"
 		fi
 	else
-		echo "Usage: maketex report||assignment number [number of assignment questions]"
+		echo "Usage: sh maketex.sh <report||assignment number> [number of assignment questions]"
 	fi
 else
-	echo "Usage: maketex report||assignment number [number of assignment questions]"
+	echo "Usage: sh maketex.sh <report||assignment number> [number of assignment questions]"
 fi
 
